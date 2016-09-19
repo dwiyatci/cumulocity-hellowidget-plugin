@@ -1,0 +1,53 @@
+{
+  "name": "Hello world application",
+  "availability": "PRIVATE",
+  "contextPath": "helloapp",
+  "key": "helloapp-appkey",
+  "resourcesUrl": "https://cdn.rawgit.com/dwiyatci/cumulocity-hellowidget-plugin/master/build",
+  "type": "HOSTED",
+  "tabsHorizontal": true,
+  "imports": [
+    "core/c8yBranding",
+    "core/imageWidget",
+    "core/assetPropertyWidget",
+    "core/devicePropertyWidget",
+    "core/alarms",
+    "core/assetTable",
+
+    "devicemanagement/alarmList",
+    "core/deviceSelector",
+    "core/kpi",
+    "core/kpiAdmin",
+    "devicemanagement/location",
+
+    "core/dashboard2",
+    "core/groupsHierarchy",
+    "core/measurements",
+    "core/map",
+
+    "core/welcomeScreen",
+    "core/deviceControlMessage",
+    "core/deviceControlRelay",
+    "core/deviceControlRelayArray",
+
+    "cockpit/cockpitConfig",
+    "cockpit/assetCount",
+    "cockpit/alarmAssets",
+    "cockpit/alarmRecent",
+    "cockpit/reports",
+    "cockpit/smartRulesUI",
+    "cockpit/home",
+    "cockpit/dataPointExplorerUI",
+
+    "core/deviceDatabase4",
+    "core/modbusWidgets",
+    "core/scada",
+
+    "core/eventList",
+    "core/export",
+    "core/dataPointTable",
+
+    "helloapp/hellowidget"
+  ],
+  "noAppSwitcher": false
+}

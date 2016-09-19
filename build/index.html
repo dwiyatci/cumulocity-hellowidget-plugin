@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>Cumulocity</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/apps/core/c8yBranding/img/favicon.ico">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/fontawesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/apps/core/styles/main.css">
+    <style type="text/css">
+      [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {display: none !important;}
+    </style>
+  </head>
+  <body>
+
+    <div class="loading">
+      <img class="mainlogo">
+
+      <div class="progress progress-striped active hidden" id="assetProgressBar">
+        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+
+      <form role="form" class="loginForm hidden">
+        <div class="input-group input-group-lg form-group tenantField" id="tenantField">
+          <span class="input-group-addon">
+            <i class="fa fa-users"></i>
+          </span>
+          <input type="text" name="tenant" autocapitalize="off" autocorrect="off" class="form-control" placeholder="Tenant" >
+        </div>
+
+        <div class="input-group input-group-lg form-group">
+          <span class="input-group-addon">
+            <i class="fa fa-user"></i>
+          </span>
+          <input type="text" name="user" autocapitalize="off" autocorrect="off" class="form-control" placeholder="Username">
+        </div>
+
+        <div class="input-group input-group-lg form-group">
+          <span class="input-group-addon">
+            <i class="fa fa-lock"></i>
+          </span>
+          <input type="password" name="password" class="form-control" placeholder="Password">
+        </div>
+
+        <div class="checkbox pull-right">
+          <label>
+            <input type="checkbox" name="remember"> Remember me
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-lg btn-block form-group">Login</button>
+        <div style="margin-top: 10px;">
+          <a class="btn btn-link pull-right forgottenPasswordLink">Forgot password?</a>
+        </div>
+      </form>
+
+      <form role="form" class="passwordResetRequestForm hidden">
+        <div class="input-group input-group-lg form-group tenantField">
+          <span class="input-group-addon">
+            <i class="fa fa-users"></i>
+          </span>
+          <input type="text" name="tenant" autocapitalize="off" autocorrect="off" class="form-control" placeholder="Tenant">
+        </div>
+        <div class="input-group input-group-lg form-group">
+          <span class="input-group-addon">
+            <i class="fa fa-envelope"></i>
+          </span>
+            <input type="email" name="email" class="form-control" placeholder="E-mail address" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg btn-block form-group">Reset password</button>
+      </form>
+
+      <form role="form" class="newPasswordForm hidden">
+        <div class="input-group input-group-lg form-group tenantField">
+          <span class="input-group-addon">
+            <i class="fa fa-users"></i>
+          </span>
+          <input type="text" name="tenant" autocapitalize="off" autocorrect="off" class="form-control" placeholder="Tenant">
+        </div>
+        <div class="input-group input-group-lg form-group">
+          <span class="input-group-addon">
+            <i class="fa fa-lock"></i>
+          </span>
+          <input type="password" name="new-password" class="form-control" placeholder="New password">
+        </div>
+        <div class="input-group input-group-lg form-group">
+          <span class="input-group-addon">
+            <i class="fa fa-lock"></i>
+          </span>
+          <input type="password" name="new-password-confirm" class="form-control" placeholder="Confirm new password">
+        </div>
+
+        <div class="password-strength">
+          <span class="password-strength-label">password strength</span>
+          <span id="passwordStrengthLabel" class="pull-right"></span>
+          <div>
+            <div id="passwordStrengthBox"></div>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-lg btn-block form-group">Set password</button>
+      </form>
+
+      <div class="alert alert-success hidden" style="margin-top: 55px;" id="success"></div>
+      <div class="alert alert-danger hidden" style="margin-top: 55px;" id="error"></div>
+    </div>
+
+    <div class="ng-cloak" id="app" c8y-main-app>
+    </div>
+
+    <script>window.C8Y_INSTANCE_OPTIONS = {target: 'cumulocity',a:0};
+    </script>
+    
+    <script src="//cdn.jsdelivr.net/g/lodash@2.4.1(lodash.min.js),jquery@2.1.1(jquery.min.js),momentjs@2.9.0(moment-with-locales.min.js),angularjs@1.2.20(angular.min.js+angular-route.min.js+angular-animate.min.js+angular-sanitize.min.js),angular.bootstrap@0.11.0(ui-bootstrap-tpls.min.js)"></script>
+    <script src="/apps/core/scripts/main.js"></script></body>
+</html>
