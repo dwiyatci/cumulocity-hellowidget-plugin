@@ -1,6 +1,6 @@
 {
   "name": "cumulocity-hellowidget-plugin",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A demo app for showcasing creation of a custom Cumulocity UI widget plugin",
   "keywords": [
     "cumulocity",
