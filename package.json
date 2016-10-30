@@ -20,28 +20,17 @@
     "url": "https://github.com/dwiyatci/cumulocity-hellowidget-plugin.git"
   },
   "scripts": {
-    "install:clean": "rimraf node_modules && npm i",
-    "start": "grunt server",
-    "smartlyRegisterApp": "npm run reregisterApp || (npm run registerApp:noImports && npm run reregisterApp)",
-    "reregisterApp": "npm run registerAllPlugin && npm run registerApp",
-    "registerAllPlugin": "grunt pluginRegisterAll",
-    "registerApp": "grunt appRegister",
-    "registerApp:noImports": "grunt appRegister:noImports",
-    "build": "npm run clean && grunt build",
-    "zip:hellowidget": "npm run build:hellowidget && rimraf hellowidget.zip && zip -r -j hellowidget.zip build/hellowidget",
-    "build:hellowidget": "npm run clean && grunt pluginBuild:hellowidget && cp plugins/hellowidget/cumulocity.json build/hellowidget && rimraf .tmp",
-    "clean": "rimraf build"
+    "preinstall:clean": "(npm up -g rimraf && rimraf -h || npm i -g rimraf) && (npm up -g yarn && yarn -h || npm i -g yarn)",
+    "install:clean": "rimraf node_modules && yarn install && c8y install",
+    "start": "c8y server -u https://glenn.cumulocity.com -k",
+    "build": "npm run clean && c8y build:plugin hellowidget",
+    "clean": "rimraf build",
+    "deploy": "c8y deploy:app"
   },
   "devDependencies": {
-    "grunt": "0.4.5",
-    "grunt-contrib-clean": "0.5.0",
-    "grunt-contrib-connect": "0.7.1",
-    "grunt-contrib-copy": "0.5.0",
-    "grunt-contrib-cssmin": "0.9.0",
-    "grunt-contrib-less": "0.11.1",
-    "grunt-contrib-uglify": "0.4.0",
-    "grunt-contrib-watch": "0.6.1",
-    "grunt-angular-templates": "0.5.5",
-    "grunt-cumulocity-ui-tasks": "1.1.4"
+    "cumulocity-tools": "2.0.8"
+  },
+  "dependencies": {
+    "cumulocity-ui-build": "http://resources.cumulocity.com/webapps/ui/7.37.0.tar.gz"
   }
 }

@@ -1,8 +1,8 @@
 {
-  "name": "Hello world application",
+  "name": "Hello widget application",
   "availability": "PRIVATE",
-  "contextPath": "helloapp",
-  "key": "helloapp-appkey",
+  "contextPath": "hellowidgetapp",
+  "key": "hellowidgetapp-application-key",
   "resourcesUrl": "https://cdn.rawgit.com/dwiyatci/cumulocity-hellowidget-plugin/master/build",
   "type": "HOSTED",
   "tabsHorizontal": true,
@@ -47,7 +47,7 @@
     "core/export",
     "core/dataPointTable",
 
-    "helloapp/hellowidget"
+    "hellowidgetapp/hellowidget"
   ],
   "noAppSwitcher": false
 }

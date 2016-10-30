@@ -1,0 +1,1 @@
+{"name":"Hello Widget","description":"Simple hello widget plugin","category":"Widgets","list":true,"ngModules":["c8y.parts.hellowidget"],"js":["main.js"],"version":"1.0.0","compatibility":{"app":"helloapp","contextPath":"hellowidget","rootContextPath":"helloapp/hellowidget"},"contextPath":"helloapp_hellowidget"}
