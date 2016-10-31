@@ -23,8 +23,9 @@
     "preinstall:clean": "(npm up -g rimraf && rimraf -h || npm i -g rimraf) && (npm up -g yarn && yarn -h || npm i -g yarn)",
     "install:clean": "rimraf node_modules && yarn install && c8y install",
     "start": "c8y server -u https://glenn.cumulocity.com -k",
-    "build": "npm run clean && c8y build:plugin hellowidget",
+    "build": "npm run clean && c8y build:app",
     "clean": "rimraf build",
+    "deploy:fast": "npm run deploy -- -p build/hellowidgetapp.zip",
     "deploy": "c8y deploy:app"
   },
   "devDependencies": {
