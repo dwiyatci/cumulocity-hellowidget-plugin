@@ -1,7 +1,10 @@
 # Created by .ignore support plugin (hsz.mobi)
 
 .idea
-.cumulocity
+
 node_modules
 npm-debug.log
 yarn.lock
+
+build/*
+!build/*.zip
