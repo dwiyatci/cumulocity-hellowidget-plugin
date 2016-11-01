@@ -24,9 +24,11 @@
     "install:clean": "rimraf node_modules && yarn install && c8y install",
     "start": "c8y server -u https://glenn.cumulocity.com -k",
     "build": "npm run clean && c8y build:app",
-    "clean": "rimraf build",
+    "deploy:easy": "npm run clean:tmp && c8y deploy:target target.json",
     "deploy:fast": "npm run deploy -- -p build/hellowidgetapp.zip",
-    "deploy": "c8y deploy:app"
+    "deploy": "npm run clean:tmp && c8y deploy:app",
+    "clean": "rimraf build",
+    "clean:tmp": "rimraf _build_for_deploy"
   },
   "devDependencies": {
     "cumulocity-tools": "2.0.8"
