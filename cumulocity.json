@@ -1,11 +1,10 @@
 {
-  "name": "Hello widget application",
-  "availability": "PRIVATE",
   "contextPath": "hellowidgetapp",
   "key": "hellowidgetapp-application-key",
-  "resourcesUrl": "https://cdn.rawgit.com/dwiyatci/cumulocity-hellowidget-plugin/master/build",
+  "name": "Hello widget application",
+  "availability": "PRIVATE",
+  "resourcesUrl": "/",
   "type": "HOSTED",
-  "tabsHorizontal": true,
   "imports": [
     "core/c8yBranding",
     "core/imageWidget",
@@ -49,5 +48,8 @@
 
     "hellowidgetapp/hellowidget"
   ],
-  "noAppSwitcher": false
+  "noAppSwitcher": false,
+  "options": {
+    "tabsHorizontal": true
+  }
 }
