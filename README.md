@@ -7,7 +7,7 @@
 A demo app for showcasing creation of a custom Cumulocity UI widget plugin.
 
 ### Why?
-Currently there is [this snore-inducing JSDoc for the API to allow adding components (widgets)](http://resources.cumulocity.com/documentation/jssdk/latest/#/core/c8y.ui.service:c8yComponentsProvider), but it is inadequately practical to show "how-to" in details. So, let's slay the Jabberwocky! :hocho: :dragon_face:
+Currently there is [this snore-inducing JSDoc for the API to allow adding components (widgets)](http://resources.cumulocity.com/documentation/jssdk/latest/#/api/c8y.ui.provider:c8yComponentsProvider), but it is inadequately practical to show "how-to" in details. So, let's slay the Jabberwocky! :hocho: :dragon_face:
 
 ## Installation
 * Make sure you have Node.js >= v6.9.1 installed and npm from its [website](https://nodejs.org), or better even, use [nvm](https://github.com/creationix/nvm).
