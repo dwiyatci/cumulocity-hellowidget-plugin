@@ -46,7 +46,7 @@
     "core/export",
     "core/dataPointTable",
 
-    "hellowidgetapp/hellowidget"
+    "hellowidgetapp/hello-widget"
   ],
   "noAppSwitcher": false,
   "options": {

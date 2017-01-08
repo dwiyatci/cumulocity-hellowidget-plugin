@@ -2,13 +2,10 @@
   'use strict';
 
   angular
-    .module('c8y.parts.hellowidget')
+    .module('helloWidgetApp.helloWidget')
     .config(configure);
 
-  configure.$inject = [
-    'c8yComponentsProvider'
-  ];
-
+  /* @ngInject */
   function configure(
     c8yComponentsProvider
   ) {
@@ -16,8 +13,8 @@
       name: 'Hello Widget',
       nameDisplay: 'Hello',
       description: 'Displays that classic "hello, world" string',
-      templateUrl: ':::PLUGIN_PATH:::/views/hellowidget.main.html',
-      configTemplateUrl: ':::PLUGIN_PATH:::/views/hellowidget.config.html'
+      templateUrl: ':::PLUGIN_PATH:::/main.html',
+      configTemplateUrl: ':::PLUGIN_PATH:::/config.html'
     });
   }
 }());

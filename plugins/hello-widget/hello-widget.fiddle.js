@@ -2,13 +2,10 @@
   'use strict';
 
   angular
-    .module('c8y.parts.hellowidget')
+    .module('helloWidgetApp.helloWidget')
     .run(runBlock);
 
-  runBlock.$inject = [
-    'c8ySystem'
-  ];
-
+  /* @ngInject */
   function runBlock(
     c8ySystem
   ) {
