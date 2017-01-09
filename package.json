@@ -21,7 +21,7 @@
   },
   "scripts": {
     "preinstall:clean": "node ./preinstall.js rimraf yarn",
-    "install:clean": "rimraf node_modules && yarn install && c8y install",
+    "install:clean": "yarn upgrade && c8y install",
     "start": "c8y server -u https://glenn.cumulocity.com -k",
     "build": "npm run clean && c8y build:app",
     "deploy:easy": "npm run clean:tmp && c8y deploy:target target.json",
