@@ -20,20 +20,38 @@
     "url": "https://github.com/dwiyatci/cumulocity-hellowidget-plugin.git"
   },
   "scripts": {
-    "preinstall:clean": "(npm up -g rimraf && rimraf -h || npm i -g rimraf) && (npm up -g yarn && yarn -h || npm i -g yarn)",
+    "preinstall:clean": "node ./preinstall.js rimraf yarn",
     "install:clean": "rimraf node_modules && yarn install && c8y install",
     "start": "c8y server -u https://glenn.cumulocity.com -k",
     "build": "npm run clean && c8y build:app",
     "deploy:easy": "npm run clean:tmp && c8y deploy:target target.json",
     "deploy:fast": "npm run deploy -- -p build/hellowidgetapp.zip",
-    "deploy": "npm run clean:tmp && c8y deploy:app",
+    "deploy": "npm run clean:tmp && c8y deploy:app hellowidgetapp",
     "clean": "rimraf build",
-    "clean:tmp": "rimraf _build_for_deploy"
+    "clean:tmp": "rimraf _build_for_deploy",
+    "lint": "eslint --cache --",
+    "test": "karma start -- hellowidgetapp"
   },
   "dependencies": {
     "cumulocity-ui-build": "http://resources.cumulocity.com/webapps/ui/7.41.1.tar.gz"
   },
   "devDependencies": {
-    "cumulocity-tools": "2.0.12"
+    "angular-mocks": "1.5.8",
+    "babel-eslint": "6.x",
+    "cumulocity-tools": "2.0.12",
+    "eslint": "3.13.0",
+    "eslint-config-airbnb-es5": "1.1.0",
+    "eslint-plugin-react": "6.8.0",
+    "fs-extra": "1.0.0",
+    "glob": "7.1.1",
+    "jasmine-core": "2.5.2",
+    "karma": "1.3.0",
+    "karma-jasmine": "1.1.0",
+    "karma-ng-html2js-preprocessor": "1.0.0",
+    "karma-phantomjs-launcher": "1.0.2",
+    "karma-spec-reporter": "0.0.26",
+    "lodash": "4.17.4",
+    "sinon": "1.17.7",
+    "tentacle.js": "0.1.0"
   }
 }

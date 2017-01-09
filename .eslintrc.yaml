@@ -1,0 +1,29 @@
+---
+env:
+  browser: true
+  node: true
+  jasmine: true
+  protractor: true
+  jquery: true
+globals:
+  _: false
+  angular: false
+  d3: false
+  L: false
+  moment: false
+  module: false
+  inject: false
+  sinon: false
+  tentacle: false
+  async: true
+  common: true
+extends: eslint-config-airbnb-es5
+rules:
+  spaced-comment:
+  - error
+  - always
+  - line:
+      exceptions:
+      - /
+    markers:
+    - //////////
