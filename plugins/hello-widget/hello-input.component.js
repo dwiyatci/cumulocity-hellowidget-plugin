@@ -30,6 +30,8 @@
 
     function onInit() {
       console.log(vm.helloText);
+
+      vm.helloText = vm.helloText || '';
     }
 
     function doCheck() {
