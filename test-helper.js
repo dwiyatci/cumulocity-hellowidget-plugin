@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  //initBackendMocks();
+  initBackendMocks();
 
   window.common = {
     globalBeforeWithUI: globalBeforeWithUI,
@@ -10,20 +10,20 @@
 
   ////////////
 
-  //function initBackendMocks() {
-  //  angular
-  //    .module('c8y.backendMocks', [])
-  //    .run(runBlock);
-  //
-  //  /* @ngInject */
-  //  function runBlock(
-  //    $httpBackend
-  //  ) {
-  //    $httpBackend
-  //      .when('GET', /\/user\/currentUser(.*)/)
-  //      .respond({});
-  //  }
-  //}
+  function initBackendMocks() {
+    angular
+      .module('c8y.backendMocks', [])
+      .run(runBlock);
+
+    /* @ngInject */
+    function runBlock(
+      $httpBackend
+    ) {
+      $httpBackend
+        .when('GET', /\/user\/currentUser(.*)/)
+        .respond({});
+    }
+  }
 
   function globalBeforeWithUI() {
     globalBefore();
@@ -35,7 +35,7 @@
       $provide.value('info', {});
     });
     module('c8y.core');
-    //module('c8y.backendMocks');
+    module('c8y.backendMocks');
     module('c8yHtml.test');
   }
 }());
