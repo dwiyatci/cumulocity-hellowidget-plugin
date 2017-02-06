@@ -35,7 +35,7 @@ After a few more steps in interactive command line user interfaces, you should t
 $ npm t
 ```
 
-Note that you may need to supply different app context path other than `hellowidgetapp` in npm scripts for `test` (in `package.json`) if you want to reuse this boilerplate.
+~~Note that you may need to supply different app context path other than `hellowidgetapp` in npm scripts for `test` (in `package.json`) if you want to reuse this boilerplate.~~
 
 ## Linting
 ```bash
