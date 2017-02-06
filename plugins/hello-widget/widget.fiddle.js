@@ -1,3 +1,7 @@
+/**
+ * Created by glenn on 18.09.16.
+ */
+
 (function () {
   'use strict';
 

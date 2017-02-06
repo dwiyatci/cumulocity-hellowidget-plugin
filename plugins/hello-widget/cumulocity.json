@@ -1,15 +1,15 @@
 {
   "name": "Hello Widget",
   "description": "Simple hello widget plugin",
-  "category": "Widgets",
+  "category": "Boilerplate",
   "ngModules": [
     "helloWidgetApp.helloWidget"
   ],
   "js": [
-    "hello-widget.module.js",
-    "hello-widget.config.js",
-    "hello-widget.component.js",
-    "hello-input.component.js",
-    "hello-widget.fiddle.js"
+    "widget.module.js",
+    "widget.config.js",
+    "widget.component.js",
+    "text-input.component.js",
+    "widget.fiddle.js"
   ]
 }

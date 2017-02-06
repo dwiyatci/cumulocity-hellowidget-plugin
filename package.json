@@ -21,7 +21,7 @@
   },
   "scripts": {
     "preinstall:clean": "node ./preinstall.js rimraf yarn",
-    "install:clean": "yarn upgrade && c8y install",
+    "install:clean": "yarn upgrade",
     "start": "c8y server -u https://glenn.cumulocity.com -k",
     "build": "npm run clean && c8y build:app",
     "deploy:easy": "npm run clean:tmp && c8y deploy:target target.json",
@@ -33,12 +33,12 @@
     "test": "karma start -- hellowidgetapp"
   },
   "dependencies": {
-    "cumulocity-ui-build": "http://resources.cumulocity.com/webapps/ui/7.41.1.tar.gz"
+    "cumulocity-ui-build": "http://resources.cumulocity.com/webapps/ui/7.43.2.tar.gz"
   },
   "devDependencies": {
     "angular-mocks": "1.5.8",
     "babel-eslint": "6.x",
-    "cumulocity-tools": "2.0.12",
+    "cumulocity-tools": "2.0.13",
     "eslint": "3.13.0",
     "eslint-config-airbnb-es5": "1.1.0",
     "eslint-plugin-react": "6.8.0",

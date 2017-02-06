@@ -2,8 +2,9 @@ const _ = require('lodash');
 const glob = require('glob');
 const { readJsonSync } = require('fs-extra');
 const {
+  join,
   dirname,
-  join
+  basename
 } = require('path');
 
 const APP_CONTEXT_PATH = process.argv[4] || 'myapplication';
@@ -44,8 +45,8 @@ module.exports = (config) => {
     ],
 
     preprocessors: {
-      '**/plugins/{**/,}*.js': ['c8y-pluginpath'],
-      '**/*.html': ['ng-html2js']
+      'plugins/**/*.js': ['c8y-pluginpath'],
+      'plugins/**/*.html': ['ng-html2js']
     },
 
     reporters: ['spec'],
@@ -59,7 +60,7 @@ module.exports = (config) => {
     },
 
     ngHtml2JsPreprocessor: {
-      cacheIdFromPath: (filepath) => computePluginPath(filepath),
+      cacheIdFromPath: filepath => join(computePluginPath(filepath), basename(filepath)),
       moduleName: 'c8yHtml.test'
     },
 
@@ -73,13 +74,14 @@ module.exports = (config) => {
 
 function c8yPluginPathPreprocessor() {
   return (content, file, done) => {
-    done(content.replace(':::PLUGIN_PATH:::', computePluginPath(file.originalPath)));
+    done(content.replace(/:::PLUGIN_PATH:::/g, computePluginPath(file.originalPath)));
   };
 }
 
 function computePluginPath(filepath) {
   const pluginName = (/plugins\/(.+?)\/+?/.exec(filepath))[1];
-  const pluginPath = `${APP_CONTEXT_PATH}_${pluginName}`;
+  //const pluginPath = `${APP_CONTEXT_PATH}_${pluginName}`;
+  const pluginPath = pluginName;
 
   return pluginPath;
 }
