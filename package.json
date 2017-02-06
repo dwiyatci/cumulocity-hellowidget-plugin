@@ -38,7 +38,7 @@
   "devDependencies": {
     "angular-mocks": "1.5.8",
     "babel-eslint": "6.x",
-    "cumulocity-tools": "2.0.13",
+    "cumulocity-tools": "2.0.14",
     "eslint": "3.13.0",
     "eslint-config-airbnb-es5": "1.1.0",
     "eslint-plugin-react": "6.8.0",

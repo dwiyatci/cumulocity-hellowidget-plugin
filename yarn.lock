@@ -723,9 +723,9 @@ css-what@1.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/css-what/-/css-what-1.0.0.tgz#d7cc2df45180666f99d2b14462639469e00f736c"
 
-cumulocity-tools@2.0.13:
-  version "2.0.13"
-  resolved "https://registry.yarnpkg.com/cumulocity-tools/-/cumulocity-tools-2.0.13.tgz#188bbd77a9a90f44b49e55193431e36fc29ce53b"
+cumulocity-tools@2.0.14:
+  version "2.0.14"
+  resolved "https://registry.yarnpkg.com/cumulocity-tools/-/cumulocity-tools-2.0.14.tgz#1801326c9b3ebd0a5b01dde4039fd03c96900d6a"
   dependencies:
     JSONPath "0.11.2"
     angular-gettext-tools "^2.1.6"
