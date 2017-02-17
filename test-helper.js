@@ -41,7 +41,6 @@
        */
       $provide.value('info', {
         appKey: 'test',
-        token: 'test',
         beta: 'test',
         appConfig: { manifest: {} },
         appName: 'test',
