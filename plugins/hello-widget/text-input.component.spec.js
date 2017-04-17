@@ -28,12 +28,9 @@ describe('helloWidgetApp.helloWidget: c8yHelloWidget component', function () {
   });
 
   describe('configuring text', function () {
-    var $scope;
-    var element;
-
     beforeEach(function () {
-
       //////////// stubbing dependencies
+
     });
 
     it('should correctly configure text by default', function () {
@@ -52,24 +49,27 @@ describe('helloWidgetApp.helloWidget: c8yHelloWidget component', function () {
 
     function testConfiguringText(helloText, expectedConfiguredText) {
       // when
-      var template = '<c8y-hello-text-input hello-text="config.helloText"></c8y-hello-text-input>';
-      initComponent(template);
+      var template = '<c8y-hello-text-input hello-text="config.helloText" />';
+
+      var element = createComponent(template);
 
       if (_.isString(helloText)) {
         element.controller('c8yHelloTextInput').helloText = helloText;
-        $scope.$digest();
+        $rootScope.$apply();
       }
 
       // then
-      expect($scope.config.helloText)
+      expect(element.scope().config.helloText)
         .toEqual(expectedConfiguredText);
     }
 
-    function initComponent(template, bindings) {
-      $scope = _.assign($rootScope.$new(), bindings);
+    function createComponent(template, bindings) {
+      var $scope = _.assign($rootScope.$new(), bindings);
 
-      element = $compile(template)($scope);
-      $scope.$digest();
+      var element = $compile(template)($scope);
+      $scope.$apply();
+
+      return element;
     }
   });
 });

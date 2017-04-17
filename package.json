@@ -33,7 +33,7 @@
     "test": "karma start -- hellowidgetapp"
   },
   "dependencies": {
-    "cumulocity-ui-build": "http://resources.cumulocity.com/webapps/ui/7.43.2.tar.gz"
+    "cumulocity-ui-build": "http://resources.cumulocity.com/webapps/ui/8.0.0.tar.gz"
   },
   "devDependencies": {
     "angular-mocks": "1.5.8",

@@ -3,8 +3,7 @@ const glob = require('glob');
 const { readJsonSync } = require('fs-extra');
 const {
   join,
-  dirname,
-  basename
+  dirname
 } = require('path');
 
 const APP_CONTEXT_PATH = process.argv[4] || 'myapplication';
@@ -60,7 +59,7 @@ module.exports = (config) => {
     },
 
     ngHtml2JsPreprocessor: {
-      cacheIdFromPath: filepath => join(computePluginPath(filepath), basename(filepath)),
+      cacheIdFromPath: filepath => filepath.replace(/^plugins\//i, ''),
       moduleName: 'c8yHtml.test'
     },
 

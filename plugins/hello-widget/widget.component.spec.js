@@ -26,8 +26,8 @@ describe('helloWidgetApp.helloWidget: c8yHelloWidget component', function () {
 
   describe('displaying text', function () {
     beforeEach(function () {
-
       //////////// stubbing dependencies
+
     });
 
     it('should display "hello, world" by default', function () {
