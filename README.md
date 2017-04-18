@@ -4,6 +4,8 @@
 [![downloads](https://img.shields.io/npm/dt/cumulocity-hellowidget-plugin.svg)](http://npm-stat.com/charts.html?package=cumulocity-hellowidget-plugin)
 [![MIT License](https://img.shields.io/github/license/mashape/apistatus.svg)](https://raw.githubusercontent.com/dwiyatci/cumulocity-hellowidget-plugin/master/LICENSE.txt)
 
+#### *** Heads-up! Since version 2.X, this Cumulocity UI plugin boilerplate is written in ES6+. :tada: ***
+
 A demo app for showcasing creation of a custom Cumulocity UI widget plugin.
 
 ### Why?

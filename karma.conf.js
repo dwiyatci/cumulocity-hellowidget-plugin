@@ -10,8 +10,16 @@ const APP_CONTEXT_PATH = process.argv[4] || 'myapplication';
 
 const pluginJsFiles = _(glob.sync('plugins/**/*/cumulocity.json'))
   .flatMap(manifestFile =>
-    _.map(readJsonSync(manifestFile).js, jsFile =>
-      join(dirname(manifestFile), jsFile)))
+    _.map(readJsonSync(manifestFile).js, (jsFile) => {
+      let baseDir = dirname(manifestFile);
+
+      if (jsFile.match(/^(node_modules|bower_components)/i)) {
+        baseDir = join(baseDir, '../..');
+      }
+
+      return join(baseDir, jsFile);
+    })
+  )
   .compact()
   .value();
 
@@ -21,7 +29,8 @@ module.exports = (config) => {
     singleRun: true,
 
     files: [
-      'node_modules/cumulocity-ui-build/core/main.js',
+      'node_modules/babel-polyfill/dist/polyfill.js',
+      'node_modules/cumulocity-ui-build/core{,_*}/main.js',
       'node_modules/angular-mocks/angular-mocks.js',
       'node_modules/sinon/pkg/sinon.js',
       'node_modules/tentacle.js/dist/tentacle.js',
@@ -40,12 +49,24 @@ module.exports = (config) => {
       'karma-phantomjs-launcher',
       'karma-spec-reporter',
       'karma-ng-html2js-preprocessor',
+      'karma-babel-preprocessor',
       { 'preprocessor:c8y-pluginpath': ['factory', c8yPluginPathPreprocessor] }
     ],
 
     preprocessors: {
-      'plugins/**/*.js': ['c8y-pluginpath'],
+      'test-helper.js': ['babel'],
+      // Match files in all plugins subfolders except vendor/
+      'plugins/*/{*.js,!(vendor)/**/*.js}': ['c8y-pluginpath', 'babel'],
       'plugins/**/*.html': ['ng-html2js']
+    },
+    babelPreprocessor: {
+      options: {
+        presets: [
+          ['env', {
+            debug: false
+          }]
+        ]
+      }
     },
 
     reporters: ['spec'],

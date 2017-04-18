@@ -31,7 +31,7 @@
   }
 
   function globalBefore() {
-    module(function ($provide) {
+    module(($provide) => {
       /*
        * Best to keep the below "magic" fake info data for unit testing purpose,
        * otherwise some services may not be able to be injected properly,

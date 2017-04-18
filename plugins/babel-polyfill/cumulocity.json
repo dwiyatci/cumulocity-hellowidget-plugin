@@ -1,0 +1,7 @@
+{
+  "name": "Babel polyfill",
+  "description": "Provides babel polyfill",
+  "js": [
+    "node_modules/babel-polyfill/dist/polyfill.js"
+  ]
+}

@@ -18,12 +18,11 @@
     });
 
   function Controller() {
-    var vm = this;
-    var device;
+    const vm = this;
 
     _.assign(vm, {
       $onInit: onInit,
-      $doCheck: doCheck
+      $onChange: onChange
     });
 
     ////////////
@@ -34,10 +33,16 @@
       vm.helloText = vm.helloText || '';
     }
 
-    function doCheck() {
-      if (!_.isEqual(device, vm.device)) {
-        device = vm.device;
+    function onChange(changes) {
+      if (changes.device) {
+        onDeviceChange();
+      }
+    }
 
+    function onDeviceChange() {
+      const { device } = vm;
+
+      if (device) {
         console.info('device id:', device.id);
       }
     }

@@ -17,11 +17,9 @@
     });
 
   function Controller() {
-    var vm = this;
+    const vm = this;
 
-    _.assign(vm, {
-      $onInit: onInit
-    });
+    vm.$onInit = onInit;
 
     ////////////
 

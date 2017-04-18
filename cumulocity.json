@@ -1,10 +1,7 @@
 {
   "contextPath": "hellowidgetapp",
-  "key": "hellowidgetapp-application-key",
   "name": "Hello widget application",
-  "availability": "PRIVATE",
-  "resourcesUrl": "/",
-  "type": "HOSTED",
+  "key": "hellowidgetapp-application-key",
   "imports": [
     "core/c8yBranding",
     "core/imageWidget",
@@ -46,10 +43,7 @@
     "core/export",
     "core/dataPointTable",
 
+    "hellowidgetapp/babel-polyfill",
     "hellowidgetapp/hello-widget"
-  ],
-  "noAppSwitcher": false,
-  "options": {
-    "tabsHorizontal": true
-  }
+  ]
 }

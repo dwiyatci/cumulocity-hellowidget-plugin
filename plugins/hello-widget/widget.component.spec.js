@@ -2,51 +2,53 @@
  * Created by glenn on 09.01.17.
  */
 
-describe('helloWidgetApp.helloWidget: c8yHelloWidget component', function () {
-  var $injector;
-  var $componentController;
+describe('helloWidgetApp.helloWidget: c8yHelloWidget component', () => {
+  let $injector;
+  let $componentController;
 
-  beforeEach(function () {
+  beforeEach(() => {
     common.globalBeforeWithUI();
     module('helloWidgetApp.helloWidget');
 
-    inject(function (
-      _$injector_,
-      _$componentController_
-    ) {
-      $injector = _$injector_;
-      $componentController = _$componentController_;
-    });
+    inject(
+      (
+        _$injector_,
+        _$componentController_
+      ) => {
+        $injector = _$injector_;
+        $componentController = _$componentController_;
+      }
+    );
   });
 
-  it('component should exist', function () {
+  it('component should exist', () => {
     expect($injector.has('c8yHelloWidgetDirective'))
       .toEqual(true);
   });
 
-  describe('displaying text', function () {
-    beforeEach(function () {
+  describe('displaying text', () => {
+    beforeEach(() => {
       //////////// stubbing dependencies
 
     });
 
-    it('should display "hello, world" by default', function () {
+    it('should display "hello, world" by default', () => {
       // given
-      var textBinding;
+      const textBinding = undefined;
 
       testDisplayingText(textBinding, 'hello, world');
     });
 
-    it('should display text according to the text binding', function () {
+    it('should display text according to the text binding', () => {
       // given
-      var textBinding = 'halo, dunia';
+      const textBinding = 'halo, dunia';
 
       testDisplayingText(textBinding, textBinding);
     });
 
     function testDisplayingText(textBinding, expectedText) {
       // when
-      var controller = $componentController(
+      const controller = $componentController(
         'c8yHelloWidget', undefined, { text: textBinding });
       controller.$onInit();
 

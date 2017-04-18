@@ -2,61 +2,57 @@
  * Created by glenn on 09.01.17.
  */
 
-describe('helloWidgetApp.helloWidget: c8yHelloWidget component', function () {
-  var $injector;
-  var $rootScope;
-  var $compile;
+describe('helloWidgetApp.helloWidget: c8yHelloWidget component', () => {
+  let $injector;
+  let $rootScope;
+  let $compile;
 
-  beforeEach(function () {
+  beforeEach(() => {
     common.globalBeforeWithUI();
     module('helloWidgetApp.helloWidget');
 
-    inject(function (
-      _$injector_,
-      _$rootScope_,
-      _$compile_
-    ) {
-      $injector = _$injector_;
-      $rootScope = _$rootScope_;
-      $compile = _$compile_;
-    });
+    inject(
+      (
+        _$injector_,
+        _$rootScope_,
+        _$compile_
+      ) => {
+        $injector = _$injector_;
+        $rootScope = _$rootScope_;
+        $compile = _$compile_;
+      }
+    );
   });
 
-  it('component should exist', function () {
+  it('component should exist', () => {
     expect($injector.has('c8yHelloTextInputDirective'))
       .toEqual(true);
   });
 
-  describe('configuring text', function () {
-    beforeEach(function () {
+  describe('configuring text', () => {
+    beforeEach(() => {
       //////////// stubbing dependencies
 
     });
 
-    it('should correctly configure text by default', function () {
+    it('should correctly configure text by default', () => {
       // given
-      var helloText;
+      const helloText = undefined;
 
       testConfiguringText(helloText, '');
     });
 
-    it('should correctly configure text according to the text binding', function () {
+    it('should correctly configure text according to the text binding', () => {
       // given
-      var helloText = 'halo, dunia';
+      const helloText = 'halo, dunia';
 
       testConfiguringText(helloText, helloText);
     });
 
     function testConfiguringText(helloText, expectedConfiguredText) {
       // when
-      var template = '<c8y-hello-text-input hello-text="config.helloText" />';
-
-      var element = createComponent(template);
-
-      if (_.isString(helloText)) {
-        element.controller('c8yHelloTextInput').helloText = helloText;
-        $rootScope.$apply();
-      }
+      const element = createComponent(
+        '<c8y-hello-text-input hello-text="config.helloText" />', { config: { helloText } });
 
       // then
       expect(element.scope().config.helloText)
@@ -64,9 +60,9 @@ describe('helloWidgetApp.helloWidget: c8yHelloWidget component', function () {
     }
 
     function createComponent(template, bindings) {
-      var $scope = _.assign($rootScope.$new(), bindings);
+      const $scope = _.assign($rootScope.$new(), bindings);
 
-      var element = $compile(template)($scope);
+      const element = $compile(template)($scope);
       $scope.$apply();
 
       return element;
