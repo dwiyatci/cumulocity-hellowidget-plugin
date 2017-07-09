@@ -43,7 +43,7 @@
     "core/export",
     "core/dataPointTable",
 
-    "hellowidgetapp/babel-polyfill",
+    "core/babel-polyfill",
     "hellowidgetapp/hello-widget"
   ]
 }
