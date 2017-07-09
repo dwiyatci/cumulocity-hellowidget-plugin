@@ -6,7 +6,7 @@ const {
   dirname
 } = require('path');
 
-const APP_CONTEXT_PATH = process.argv[4] || 'myapplication';
+const APP_CONTEXT_PATH = process.argv[4] || 'pocs';
 
 const pluginJsFiles = _(glob.sync('plugins/**/*/cumulocity.json'))
   .flatMap(manifestFile =>
@@ -25,11 +25,9 @@ const pluginJsFiles = _(glob.sync('plugins/**/*/cumulocity.json'))
 
 module.exports = (config) => {
   config.set({
-
     singleRun: true,
 
     files: [
-      'node_modules/babel-polyfill/dist/polyfill.js',
       'node_modules/cumulocity-ui-build/core{,_*}/main.js',
       'node_modules/angular-mocks/angular-mocks.js',
       'node_modules/sinon/pkg/sinon.js',
@@ -42,11 +40,11 @@ module.exports = (config) => {
 
     frameworks: ['jasmine'],
 
-    browsers: ['PhantomJS'],
+    browsers: ['ChromeHeadless'],
 
     plugins: [
       'karma-jasmine',
-      'karma-phantomjs-launcher',
+      'karma-chrome-launcher',
       'karma-spec-reporter',
       'karma-ng-html2js-preprocessor',
       'karma-babel-preprocessor',
@@ -55,18 +53,10 @@ module.exports = (config) => {
 
     preprocessors: {
       'test-helper.js': ['babel'],
-      // Match files in all plugins subfolders except vendor/
-      'plugins/*/{*.js,!(vendor)/**/*.js}': ['c8y-pluginpath', 'babel'],
+
+      // Match files in all plugins subfolders except vendor/ or lib/.
+      'plugins/*/{*.js,!(vendor)/**/*.js,!(lib)/**/*.js}': ['c8y-pluginpath', 'babel'],
       'plugins/**/*.html': ['ng-html2js']
-    },
-    babelPreprocessor: {
-      options: {
-        presets: [
-          ['env', {
-            debug: false
-          }]
-        ]
-      }
     },
 
     reporters: ['spec'],

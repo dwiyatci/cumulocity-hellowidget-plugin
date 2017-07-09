@@ -21,19 +21,19 @@
     const vm = this;
 
     _.assign(vm, {
-      $onInit: onInit,
-      $onChange: onChange
+      $onInit,
+      $onChanges
     });
 
     ////////////
 
-    function onInit() {
+    function $onInit() {
       console.log(vm.helloText);
 
       vm.helloText = vm.helloText || '';
     }
 
-    function onChange(changes) {
+    function $onChanges(changes) {
       if (changes.device) {
         onDeviceChange();
       }
