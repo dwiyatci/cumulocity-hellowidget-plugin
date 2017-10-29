@@ -11,10 +11,10 @@
       template: '<input ng-model="vm.helloText">',
       bindings: {
         device: '<',
-        helloText: '='
+        helloText: '=',
       },
+      controllerAs: 'vm',
       controller: Controller,
-      controllerAs: 'vm'
     });
 
   function Controller() {
@@ -22,7 +22,7 @@
 
     _.assign(vm, {
       $onInit,
-      $onChanges
+      $onChanges,
     });
 
     ////////////
@@ -33,8 +33,8 @@
       vm.helloText = vm.helloText || '';
     }
 
-    function $onChanges(changes) {
-      if (changes.device) {
+    function $onChanges({ device }) {
+      if (device) {
         onDeviceChange();
       }
     }

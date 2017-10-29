@@ -1,7 +1,7 @@
 {
   "name": "glenn",
   "deployOptions": {
-    "C8Y_BASE_URL": "https://glenn.cumulocity.com",
+    "C8Y_BASE_URL": "https://developer.cumulocity.com",
     "C8Y_BASE_TENANT_DEFAULT": "glenn",
     "C8Y_BASE_USER_DEFAULT": "admin"
   },

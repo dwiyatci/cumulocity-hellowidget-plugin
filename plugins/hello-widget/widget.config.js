@@ -12,14 +12,14 @@
   /* @ngInject */
   function configure(
     c8yComponentsProvider,
-    gettext
+    gettext,
   ) {
     c8yComponentsProvider.add({
       name: 'hello',
       nameDisplay: gettext('Hello'),
       description: gettext('Displays that classic "hello, world" string'),
       templateUrl: ':::PLUGIN_PATH:::/main.html',
-      configTemplateUrl: ':::PLUGIN_PATH:::/config.html'
+      configTemplateUrl: ':::PLUGIN_PATH:::/config.html',
     });
   }
 }());

@@ -51,7 +51,7 @@ $ npm run lint plugins
 
 Or better yet, make your IDE automatically integrate the linting process based on the .rc file (`.eslintrc.yaml`).
 
-The rules quite strictly follow the [Airbnb JavaScript Style Guide (ES5)](https://github.com/airbnb/javascript/tree/es5-deprecated/es5).
+The rules quite strictly follow the [Airbnb JavaScript Style Guide (ES6+ without React)](https://github.com/airbnb/javascript).
 
 ## Author
 Glenn Dwiyatcita ([@dwiyatci](http://tiny.cc/dwiyatci))

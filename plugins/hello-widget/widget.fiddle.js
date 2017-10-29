@@ -10,9 +10,7 @@
     .run(runBlock);
 
   /* @ngInject */
-  function runBlock(
-    c8ySystem
-  ) {
+  function runBlock(c8ySystem) {
     (async () => {
       const version = await c8ySystem.getUIVersion();
 

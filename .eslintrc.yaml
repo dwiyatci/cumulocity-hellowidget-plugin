@@ -17,7 +17,9 @@ globals:
   tentacle: false
   async: true
   common: true
-extends: eslint-config-airbnb-es5
+extends: airbnb-base
+parserOptions:
+  sourceType: script
 rules:
   spaced-comment:
   - error
@@ -30,3 +32,12 @@ rules:
   valid-jsdoc:
   - error
   - requireReturn: false
+  no-use-before-define:
+    - error
+    - functions: false
+  no-param-reassign:
+  - error
+  - props: false
+  strict:
+  - error
+  - function

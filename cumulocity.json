@@ -28,7 +28,7 @@
 
     "cockpit/cockpitConfig",
     "cockpit/assetCount",
-    "cockpit/alarmAssets",
+    "core/alarmAssets",
     "cockpit/alarmRecent",
     "cockpit/reports",
     "cockpit/smartRulesUI",

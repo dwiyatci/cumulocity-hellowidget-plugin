@@ -10,10 +10,10 @@
     .component('c8yHelloWidget', {
       template: '<div>{{vm.text}}</div>',
       bindings: {
-        text: '<'
+        text: '<',
       },
+      controllerAs: 'vm',
       controller: Controller,
-      controllerAs: 'vm'
     });
 
   function Controller() {

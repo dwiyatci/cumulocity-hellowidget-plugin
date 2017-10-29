@@ -3,6 +3,8 @@
  */
 
 describe('helloWidgetApp.helloWidget: c8yHelloWidget component', () => {
+  'use strict';
+
   let $injector;
   let $componentController;
 
@@ -10,15 +12,13 @@ describe('helloWidgetApp.helloWidget: c8yHelloWidget component', () => {
     common.globalBeforeWithUI();
     module('helloWidgetApp.helloWidget');
 
-    inject(
-      (
-        _$injector_,
-        _$componentController_
-      ) => {
-        $injector = _$injector_;
-        $componentController = _$componentController_;
-      }
-    );
+    inject((
+      _$injector_,
+      _$componentController_,
+    ) => {
+      $injector = _$injector_;
+      $componentController = _$componentController_;
+    });
   });
 
   it('component should exist', () => {
@@ -48,8 +48,7 @@ describe('helloWidgetApp.helloWidget: c8yHelloWidget component', () => {
 
     function testDisplayingText(textBinding, expectedText) {
       // when
-      const controller = $componentController(
-        'c8yHelloWidget', undefined, { text: textBinding });
+      const controller = $componentController('c8yHelloWidget', undefined, { text: textBinding });
       controller.$onInit();
 
       // then

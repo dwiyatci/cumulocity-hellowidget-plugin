@@ -3,6 +3,8 @@
  */
 
 describe('helloWidgetApp.helloWidget: c8yHelloWidget component', () => {
+  'use strict';
+
   let $injector;
   let $rootScope;
   let $compile;
@@ -11,17 +13,15 @@ describe('helloWidgetApp.helloWidget: c8yHelloWidget component', () => {
     common.globalBeforeWithUI();
     module('helloWidgetApp.helloWidget');
 
-    inject(
-      (
-        _$injector_,
-        _$rootScope_,
-        _$compile_
-      ) => {
-        $injector = _$injector_;
-        $rootScope = _$rootScope_;
-        $compile = _$compile_;
-      }
-    );
+    inject((
+      _$injector_,
+      _$rootScope_,
+      _$compile_,
+    ) => {
+      $injector = _$injector_;
+      $rootScope = _$rootScope_;
+      $compile = _$compile_;
+    });
   });
 
   it('component should exist', () => {
@@ -52,7 +52,9 @@ describe('helloWidgetApp.helloWidget: c8yHelloWidget component', () => {
     function testConfiguringText(helloText, expectedConfiguredText) {
       // when
       const element = createComponent(
-        '<c8y-hello-text-input hello-text="config.helloText" />', { config: { helloText } });
+        '<c8y-hello-text-input hello-text="config.helloText" />',
+        { config: { helloText } },
+      );
 
       // then
       expect(element.scope().config.helloText)
