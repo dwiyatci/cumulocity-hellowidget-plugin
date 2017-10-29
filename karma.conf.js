@@ -3,7 +3,7 @@ const glob = require('glob');
 const { readJsonSync } = require('fs-extra');
 const {
   join,
-  dirname
+  dirname,
 } = require('path');
 
 const APP_CONTEXT_PATH = process.argv[4] || 'pocs';
@@ -18,8 +18,7 @@ const pluginJsFiles = _(glob.sync('plugins/**/*/cumulocity.json'))
       }
 
       return join(baseDir, jsFile);
-    })
-  )
+    }))
   .compact()
   .value();
 
@@ -35,7 +34,7 @@ module.exports = (config) => {
       'test-helper.js',
       ...pluginJsFiles,
       'plugins/**/*.spec.js',
-      'plugins/**/*.html'
+      'plugins/**/*.html',
     ],
 
     frameworks: ['jasmine'],
@@ -48,7 +47,7 @@ module.exports = (config) => {
       'karma-spec-reporter',
       'karma-ng-html2js-preprocessor',
       'karma-babel-preprocessor',
-      { 'preprocessor:c8y-pluginpath': ['factory', c8yPluginPathPreprocessor] }
+      { 'preprocessor:c8y-pluginpath': ['factory', c8yPluginPathPreprocessor] },
     ],
 
     preprocessors: {
@@ -56,29 +55,29 @@ module.exports = (config) => {
 
       // Match files in all plugins subfolders except vendor/ or lib/.
       'plugins/*/{*.js,!(vendor)/**/*.js,!(lib)/**/*.js}': ['c8y-pluginpath', 'babel'],
-      'plugins/**/*.html': ['ng-html2js']
+      'plugins/**/*.html': ['ng-html2js'],
     },
 
     reporters: ['spec'],
     specReporter: {
-      maxLogLines: 5,         // limit number of lines logged per test
-      suppressErrorSummary: true,  // do not print error summary
-      suppressFailed: false,  // do not print information about failed tests
-      suppressPassed: false,  // do not print information about passed tests
-      suppressSkipped: false,  // do not print information about skipped tests
-      showSpecTiming: false // print the time elapsed for each spec
+      maxLogLines: 5, // limit number of lines logged per test
+      suppressErrorSummary: true, // do not print error summary
+      suppressFailed: false, // do not print information about failed tests
+      suppressPassed: false, // do not print information about passed tests
+      suppressSkipped: false, // do not print information about skipped tests
+      showSpecTiming: false, // print the time elapsed for each spec
     },
 
     ngHtml2JsPreprocessor: {
       cacheIdFromPath: filepath => filepath.replace(/^plugins\//i, ''),
-      moduleName: 'c8yHtml.test'
+      moduleName: 'c8yHtml.test',
     },
 
     logLevel: config.LOG_ERROR,
 
     client: {
-      captureConsole: false
-    }
+      captureConsole: false,
+    },
   });
 };
 

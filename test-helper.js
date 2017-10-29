@@ -4,8 +4,8 @@
   initBackendMocks();
 
   window.common = {
-    globalBeforeWithUI: globalBeforeWithUI,
-    globalBefore: globalBefore
+    globalBeforeWithUI,
+    globalBefore,
   };
 
   ////////////
@@ -16,9 +16,7 @@
       .run(runBlock);
 
     /* @ngInject */
-    function runBlock(
-      $httpBackend
-    ) {
+    function runBlock($httpBackend) {
       $httpBackend
         .when('GET', /\/user\/currentUser(.*)/)
         .respond({});
@@ -52,7 +50,7 @@
         preventGetUser: true,
         languages: ['en'],
         skipSwitchingToDefaultLanguage: true,
-        test: true
+        test: true,
       });
     });
     module('c8y.core');
