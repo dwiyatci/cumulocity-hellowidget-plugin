@@ -48,7 +48,7 @@ describe('helloWidgetApp.helloWidget: c8yHelloWidget component', () => {
 
     function testDisplayingText(textBinding, expectedText) {
       // when
-      const controller = $componentController('c8yHelloWidget', undefined, { text: textBinding });
+      const controller = $componentController('c8yHelloWidget', undefined, { config: { helloText: textBinding } });
       controller.$onInit();
 
       // then

@@ -10,7 +10,7 @@
     .component('c8yHelloWidget', {
       template: '<div>{{vm.text}}</div>',
       bindings: {
-        text: '<',
+        config: '<',
       },
       controllerAs: 'vm',
       controller: Controller,
@@ -24,7 +24,7 @@
     ////////////
 
     function $onInit() {
-      vm.text = vm.text || 'hello, world';
+      vm.text = _.get(vm, 'config.helloText', 'hello, world');
     }
   }
 }());

@@ -8,10 +8,9 @@
   angular
     .module('helloWidgetApp.helloWidget')
     .component('c8yHelloTextInput', {
-      template: '<input ng-model="vm.helloText">',
+      template: '<input ng-model="vm.config.helloText">',
       bindings: {
-        device: '<',
-        helloText: '=',
+        config: '<',
       },
       controllerAs: 'vm',
       controller: Controller,
@@ -19,6 +18,7 @@
 
   function Controller() {
     const vm = this;
+    const defaultConfig = { helloText: '' };
 
     _.assign(vm, {
       $onInit,
@@ -28,22 +28,22 @@
     ////////////
 
     function $onInit() {
-      console.log(vm.helloText);
+      _.defaults(vm.config, defaultConfig);
 
-      vm.helloText = vm.helloText || '';
+      console.log(vm.config.helloText);
     }
 
-    function $onChanges({ device }) {
-      if (device) {
-        onDeviceChange();
+    function $onChanges({ config }) {
+      if (config) {
+        onConfigChange(vm.config);
       }
     }
 
-    function onDeviceChange() {
-      const { device } = vm;
+    function onConfigChange(config) {
+      const deviceId = _.get(config, 'device.id');
 
-      if (device) {
-        console.info('device id:', device.id);
+      if (deviceId) {
+        console.info('device id:', deviceId);
       }
     }
   }

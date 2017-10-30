@@ -52,7 +52,7 @@ describe('helloWidgetApp.helloWidget: c8yHelloWidget component', () => {
     function testConfiguringText(helloText, expectedConfiguredText) {
       // when
       const element = createComponent(
-        '<c8y-hello-text-input hello-text="config.helloText" />',
+        '<c8y-hello-text-input config="config" />',
         { config: { helloText } },
       );
 
