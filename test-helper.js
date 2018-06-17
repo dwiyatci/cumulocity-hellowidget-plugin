@@ -1,25 +1,21 @@
-(function () {
+(() => {
   'use strict';
 
   initBackendMocks();
 
   window.common = {
     globalBeforeWithUI,
-    globalBefore,
+    globalBefore
   };
 
   ////////////
 
   function initBackendMocks() {
-    angular
-      .module('c8y.backendMocks', [])
-      .run(runBlock);
+    angular.module('c8y.backendMocks', []).run(runBlock);
 
     /* @ngInject */
     function runBlock($httpBackend) {
-      $httpBackend
-        .when('GET', /\/user\/currentUser(.*)/)
-        .respond({});
+      $httpBackend.when('GET', /\/user\/currentUser(.*)/).respond({});
     }
   }
 
@@ -29,7 +25,7 @@
   }
 
   function globalBefore() {
-    module(($provide) => {
+    module($provide => {
       /*
        * Best to keep the below "magic" fake info data for unit testing purpose,
        * otherwise some services may not be able to be injected properly,
@@ -50,11 +46,11 @@
         preventGetUser: true,
         languages: ['en'],
         skipSwitchingToDefaultLanguage: true,
-        test: true,
+        test: true
       });
     });
     module('c8y.core');
     module('c8y.backendMocks');
     module('c8yHtml.test');
   }
-}());
+})();

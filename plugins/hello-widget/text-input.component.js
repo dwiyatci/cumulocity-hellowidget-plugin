@@ -2,19 +2,22 @@
  * Created by glenn on 08.01.17.
  */
 
-(function () {
+(() => {
   'use strict';
 
-  angular
-    .module('helloWidgetApp.helloWidget')
-    .component('c8yHelloTextInput', {
-      template: '<input ng-model="vm.config.helloText">',
-      bindings: {
-        config: '<',
-      },
-      controllerAs: 'vm',
-      controller: Controller,
-    });
+  angular.module('helloWidgetApp.helloWidget').component('c8yHelloTextInput', {
+    template: `
+      <div>
+        Type your "hello, world" text (e.g. in your own language &#x1F47D;):
+        <input ng-model="vm.config.helloText">
+      </div>
+    `,
+    bindings: {
+      config: '<'
+    },
+    controllerAs: 'vm',
+    controller: Controller
+  });
 
   function Controller() {
     const vm = this;
@@ -22,7 +25,7 @@
 
     _.assign(vm, {
       $onInit,
-      $onChanges,
+      $onChanges
     });
 
     ////////////
@@ -47,4 +50,4 @@
       }
     }
   }
-}());
+})();

@@ -12,24 +12,19 @@ describe('helloWidgetApp.helloWidget: c8yHelloWidget component', () => {
     common.globalBeforeWithUI();
     module('helloWidgetApp.helloWidget');
 
-    inject((
-      _$injector_,
-      _$componentController_,
-    ) => {
+    inject((_$injector_, _$componentController_) => {
       $injector = _$injector_;
       $componentController = _$componentController_;
     });
   });
 
   it('component should exist', () => {
-    expect($injector.has('c8yHelloWidgetDirective'))
-      .toEqual(true);
+    expect($injector.has('c8yHelloWidgetDirective')).toEqual(true);
   });
 
   describe('displaying text', () => {
     beforeEach(() => {
       //////////// stubbing dependencies
-
     });
 
     it('should display "hello, world" by default', () => {
@@ -48,12 +43,13 @@ describe('helloWidgetApp.helloWidget: c8yHelloWidget component', () => {
 
     function testDisplayingText(textBinding, expectedText) {
       // when
-      const controller = $componentController('c8yHelloWidget', undefined, { config: { helloText: textBinding } });
+      const controller = $componentController('c8yHelloWidget', undefined, {
+        config: { helloText: textBinding }
+      });
       controller.$onInit();
 
       // then
-      expect(controller.text)
-        .toEqual(expectedText);
+      expect(controller.text).toEqual(expectedText);
     }
   });
 });

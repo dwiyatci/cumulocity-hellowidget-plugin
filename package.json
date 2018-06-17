@@ -20,18 +20,19 @@
     "url": "https://github.com/dwiyatci/cumulocity-hellowidget-plugin.git"
   },
   "scripts": {
-    "preinstall:clean": "node ./preinstall.js rimraf yarn",
+    "preinstall:clean": "node ./preinstall.js rimraf",
     "install:clean": "yarn upgrade || yarn install",
     "update": "yarn upgrade-interactive --latest",
-    "start": "c8y server -u https://developer.cumulocity.com -k",
+    "start": "c8y server -k -u https://developer.cumulocity.com",
     "build": "yarn clean && c8y build:app",
     "deploy:easy": "yarn clean:tmp && c8y deploy:target target.json",
-    "deploy:fast": "yarn deploy -- -p build/hellowidgetapp.zip",
+    "deploy:fast": "yarn deploy -p build/hellowidgetapp.zip",
     "deploy": "yarn clean:tmp && c8y deploy:app hellowidgetapp",
     "clean": "rimraf build",
     "clean:tmp": "rimraf _build_for_deploy",
-    "lint": "eslint --cache --",
-    "test": "karma start -- hellowidgetapp"
+    "lint": "eslint --cache",
+    "test": "karma start -- hellowidgetapp",
+    "prettier": "prettier --write"
   },
   "dependencies": {
     "babel-polyfill": "6.26.0",
@@ -46,6 +47,7 @@
     "cumulocity-tools": "2.0.26",
     "eslint": "4.10.0",
     "eslint-config-airbnb-base": "12.1.0",
+    "eslint-config-prettier": "2.9.0",
     "eslint-plugin-import": "2.8.0",
     "fs-extra": "4.0.2",
     "glob": "7.1.2",
@@ -58,6 +60,7 @@
     "karma-phantomjs-launcher": "1.0.4",
     "karma-spec-reporter": "0.0.31",
     "lodash": "4.17.4",
+    "prettier": "1.13.5",
     "sinon": "4.0.2",
     "tentacle.js": "0.1.0"
   }
