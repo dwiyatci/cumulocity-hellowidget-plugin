@@ -2,6 +2,7 @@
   "contextPath": "hellowidgetapp",
   "name": "Hello widget application",
   "key": "hellowidgetapp-application-key",
+  "tabsHorizontal": false,
   "imports": [
     "core/c8yBranding",
     "core/imageWidget",
@@ -9,6 +10,7 @@
     "core/devicePropertyWidget",
     "core/alarms",
     "core/assetTable",
+    "core/eventsBinary",
 
     "devicemanagement/alarmList",
     "core/deviceSelector",
@@ -17,9 +19,11 @@
     "devicemanagement/location",
 
     "core/dashboard2",
+    "core/dashboardUI",
     "core/groupsHierarchy",
     "core/measurements",
     "core/map",
+    "core/alarmAssets",
 
     "core/welcomeScreen",
     "core/deviceControlMessage",
@@ -28,22 +32,25 @@
 
     "cockpit/cockpitConfig",
     "cockpit/assetCount",
-    "core/alarmAssets",
     "cockpit/alarmRecent",
     "cockpit/reports",
     "cockpit/smartRulesUI",
     "cockpit/home",
     "cockpit/dataPointExplorerUI",
+    "core/alarmsEventsExplorer",
 
     "core/deviceDatabase4",
-    "core/modbusWidgets",
+    "core/modbusWidget4",
     "core/scada",
 
     "core/eventList",
     "core/export",
     "core/dataPointTable",
+    "core/switchDisplay",
+    "core/trafficLightWidget",
+    "core/infoGauge",
+    "core/binary-file-download",
 
-    "core/babel-polyfill",
     "hellowidgetapp/hello-widget"
   ]
 }
