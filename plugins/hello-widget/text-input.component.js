@@ -6,12 +6,7 @@
   'use strict';
 
   angular.module('helloWidgetApp.helloWidget').component('c8yHelloTextInput', {
-    template: `
-      <div>
-        Type your "hello, world" text (e.g. in your own language &#x1F47D;):
-        <input ng-model="vm.config.helloText">
-      </div>
-    `,
+    templateUrl: ':::PLUGIN_PATH:::/text-input.component.html',
     bindings: {
       config: '<'
     },

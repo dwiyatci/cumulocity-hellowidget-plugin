@@ -11,12 +11,12 @@ describe('helloWidgetApp.helloWidget: c8yHelloWidget component', () => {
 
   beforeEach(() => {
     common.globalBeforeWithUI();
-    module('helloWidgetApp.helloWidget');
+    angular.mock.module('helloWidgetApp.helloWidget');
 
-    inject((_$injector_, _$rootScope_, _$compile_) => {
+    inject(_$injector_ => {
       $injector = _$injector_;
-      $rootScope = _$rootScope_;
-      $compile = _$compile_;
+      $rootScope = $injector.get('$rootScope');
+      $compile = $injector.get('$compile');
     });
   });
 
@@ -46,7 +46,7 @@ describe('helloWidgetApp.helloWidget: c8yHelloWidget component', () => {
     function testConfiguringText(helloText, expectedConfiguredText) {
       // when
       const element = createComponent(
-        '<c8y-hello-text-input config="config" />',
+        '<c8y-hello-text-input config="config"></c8y-hello-text-input>',
         { config: { helloText } }
       );
 

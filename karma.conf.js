@@ -77,7 +77,7 @@ module.exports = config => {
     logLevel: config.LOG_ERROR,
 
     client: {
-      captureConsole: false
+      captureConsole: true
     }
   });
 };

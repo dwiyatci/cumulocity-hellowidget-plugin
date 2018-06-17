@@ -10,11 +10,11 @@ describe('helloWidgetApp.helloWidget: c8yHelloWidget component', () => {
 
   beforeEach(() => {
     common.globalBeforeWithUI();
-    module('helloWidgetApp.helloWidget');
+    angular.mock.module('helloWidgetApp.helloWidget');
 
-    inject((_$injector_, _$componentController_) => {
+    inject(_$injector_ => {
       $injector = _$injector_;
-      $componentController = _$componentController_;
+      $componentController = $injector.get('$componentController');
     });
   });
 
