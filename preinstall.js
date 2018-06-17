@@ -1,4 +1,5 @@
 const { exec } = require('child_process');
+
 const [, , ...packages] = process.argv;
 
 const command = packages

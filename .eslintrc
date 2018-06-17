@@ -65,6 +65,7 @@ rules:
 overrides:
   - files:
     - karma.conf.js
+    - preinstall.js
     excludedFiles:
     - test-helper.js
     parserOptions:
