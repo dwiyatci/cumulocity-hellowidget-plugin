@@ -1,7 +1,7 @@
 {
   "name": "Hello Widget",
   "description": "Simple hello widget plugin",
-  "category": "Boilerplate",
+  "category": "Boilerplates",
   "ngModules": ["helloWidgetApp.helloWidget"],
   "js": [
     "widget.module.js",

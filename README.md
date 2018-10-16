@@ -4,15 +4,13 @@
 [![downloads](https://img.shields.io/npm/dt/cumulocity-hellowidget-plugin.svg)](http://npm-stat.com/charts.html?package=cumulocity-hellowidget-plugin)
 [![MIT License](https://img.shields.io/github/license/mashape/apistatus.svg)](https://raw.githubusercontent.com/dwiyatci/cumulocity-hellowidget-plugin/master/LICENSE.txt)
 
-#### *** Heads-up! Since version 2.X, this Cumulocity UI plugin boilerplate is written in ES6+. 🎉 ***
-
 A demo app for showcasing creation of a custom Cumulocity UI widget plugin.
 
 ### Why?
 Currently there is [this snore-inducing JSDoc for the API to allow adding components (widgets)](http://resources.cumulocity.com/documentation/jssdk/latest/#/api/c8y.ui.provider:c8yComponentsProvider), but it is inadequately practical to show "how-to" in details. So, let's slay the Jabberwocky! :hocho: :dragon_face:
 
 ## Installation
-* Make sure you have Node.js ≥ v8.9.0 installed and npm from its [website](https://nodejs.org), or better even, use [nvm](https://github.com/creationix/nvm).
+* Make sure you have Node.js LTS installed and npm from its [website](https://nodejs.org), or better even, use [nvm](https://github.com/creationix/nvm).
 
 - Install [yarn](https://yarnpkg.com/en/docs/install).
 
@@ -49,7 +47,7 @@ $ yarn test
 
 ## Linting
 ```bash
-$ yarn lint <targetFileOrDir>
+$ yarn lint <target_file_or_dir>
 ```
 
 Example:
@@ -57,7 +55,7 @@ Example:
 $ yarn lint plugins
 ```
 
-Or better yet, make your IDE automatically integrate the linting process based on the .rc file (`.eslintrc.yaml`).
+Or better yet, make your IDE automatically integrate the linting process based on the .rc file (`.eslintrc`).
 
 The rules quite strictly follow the [Airbnb JavaScript Style Guide (ES6+ without React)](https://github.com/airbnb/javascript).
 

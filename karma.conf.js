@@ -1,20 +1,20 @@
 const _ = require('lodash');
 const glob = require('glob');
 const { readJsonSync } = require('fs-extra');
-const { join, dirname } = require('path');
+const { resolve, dirname } = require('path');
 
-const APP_CONTEXT_PATH = process.argv[4] || 'hellowidgetapp';
+// const APP_CONTEXT_PATH = process.argv[4] || 'helloapp';
 
-const pluginJsFiles = _(glob.sync('plugins/**/*/cumulocity.json'))
+const pluginJsFiles = _(glob.sync('plugins/*/cumulocity.json'))
   .flatMap(manifestFile =>
     _.map(readJsonSync(manifestFile).js, jsFile => {
       let baseDir = dirname(manifestFile);
 
       if (jsFile.match(/^(node_modules|bower_components)/i)) {
-        baseDir = join(baseDir, '../..');
+        baseDir = resolve(baseDir, '../..');
       }
 
-      return join(baseDir, jsFile);
+      return resolve(baseDir, jsFile);
     })
   )
   .compact()
@@ -22,17 +22,15 @@ const pluginJsFiles = _(glob.sync('plugins/**/*/cumulocity.json'))
 
 module.exports = config => {
   config.set({
-    singleRun: true,
+    singleRun: false,
 
     files: [
       'node_modules/cumulocity-ui-build/core{,_*}/main.js',
       'node_modules/angular-mocks/angular-mocks.js',
-      'node_modules/sinon/pkg/sinon.js',
-      'node_modules/tentacle.js/dist/tentacle.js',
       'test-helper.js',
       ...pluginJsFiles,
-      'plugins/**/*.spec.js',
-      'plugins/**/*.html'
+      'plugins/*/**/*.spec.js', // match plugins/p/x.spec.js but not plugins/x.spec.js,
+      'plugins/*/**/*.html'
     ],
 
     frameworks: ['jasmine'],
@@ -40,23 +38,18 @@ module.exports = config => {
     browsers: ['ChromeHeadless'],
 
     plugins: [
-      'karma-jasmine',
-      'karma-chrome-launcher',
-      'karma-spec-reporter',
-      'karma-ng-html2js-preprocessor',
-      'karma-babel-preprocessor',
+      require('karma-jasmine'),
+      require('karma-chrome-launcher'),
+      require('karma-spec-reporter'),
+      require('karma-ng-html2js-preprocessor'),
+      require('karma-babel-preprocessor'),
       { 'preprocessor:c8y-pluginpath': ['factory', c8yPluginPathPreprocessor] }
     ],
 
     preprocessors: {
-      'test-helper.js': ['babel'],
-
       // Match files in all plugins subfolders except vendor/ or lib/.
-      'plugins/*/{*.js,!(vendor)/**/*.js,!(lib)/**/*.js}': [
-        'c8y-pluginpath',
-        'babel'
-      ],
-      'plugins/**/*.html': ['ng-html2js']
+      'plugins/*/{*.js,!(vendor)/**/*.js,!(lib)/**/*.js}': ['c8y-pluginpath', 'babel'],
+      'plugins/*/**/*.html': ['c8y-pluginpath', 'ng-html2js']
     },
 
     reporters: ['spec'],
@@ -70,33 +63,18 @@ module.exports = config => {
     },
 
     ngHtml2JsPreprocessor: {
-      cacheIdFromPath: filepath => filepath.replace(/^plugins\//i, ''),
+      cacheIdFromPath: filepath => filepath.replace(/^plugins\//, ''),
       moduleName: 'c8yHtml.test'
     },
 
-    logLevel: config.LOG_ERROR,
-
-    client: {
-      captureConsole: true
-    }
+    logLevel: config.LOG_ERROR
   });
 };
 
 function c8yPluginPathPreprocessor() {
   return (content, file, done) => {
-    done(
-      content.replace(
-        /:::PLUGIN_PATH:::/g,
-        computePluginPath(file.originalPath)
-      )
-    );
+    const [, pluginName] = file.originalPath.match(/plugins\/(.+?)\//);
+
+    done(content.replace(/:::PLUGIN_PATH:::/g, pluginName));
   };
-}
-
-function computePluginPath(filepath) {
-  const pluginName = /plugins\/(.+?)\/+?/.exec(filepath)[1];
-  //const pluginPath = `${APP_CONTEXT_PATH}_${pluginName}`;
-  const pluginPath = pluginName;
-
-  return pluginPath;
 }

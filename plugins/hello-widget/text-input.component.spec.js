@@ -5,30 +5,13 @@
 describe('helloWidgetApp.helloWidget: c8yHelloWidget component', () => {
   'use strict';
 
-  let $injector;
-  let $rootScope;
-  let $compile;
-
-  beforeEach(() => {
-    common.globalBeforeWithUI();
-    angular.mock.module('helloWidgetApp.helloWidget');
-
-    inject(_$injector_ => {
-      $injector = _$injector_;
-      $rootScope = $injector.get('$rootScope');
-      $compile = $injector.get('$compile');
-    });
-  });
-
   it('component should exist', () => {
+    const { $injector } = setup();
+
     expect($injector.has('c8yHelloTextInputDirective')).toEqual(true);
   });
 
   describe('configuring text', () => {
-    beforeEach(() => {
-      //////////// stubbing dependencies
-    });
-
     it('should correctly configure text by default', () => {
       // given
       const helloText = undefined;
@@ -55,6 +38,7 @@ describe('helloWidgetApp.helloWidget: c8yHelloWidget component', () => {
     }
 
     function createComponent(template, bindings) {
+      const { $rootScope, $compile } = setup();
       const $scope = _.assign($rootScope.$new(), bindings);
 
       const element = $compile(template)($scope);
@@ -63,4 +47,19 @@ describe('helloWidgetApp.helloWidget: c8yHelloWidget component', () => {
       return element;
     }
   });
+
+  function setup() {
+    const setupVariables = {};
+
+    common.globalBeforeWithUI();
+    angular.mock.module('helloWidgetApp.helloWidget');
+
+    inject(($injector) => _.assign(setupVariables, {
+      $injector,
+      $rootScope: $injector.get('$rootScope'),
+      $compile: $injector.get('$compile')
+    }));
+
+    return setupVariables;
+  }
 });

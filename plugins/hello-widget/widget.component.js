@@ -14,6 +14,7 @@
     controller: Controller
   });
 
+  /* @ngInject */
   function Controller() {
     const vm = this;
 
